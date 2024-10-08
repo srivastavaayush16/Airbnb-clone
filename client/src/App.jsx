@@ -18,7 +18,7 @@ axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <UserContextProvider>
+    <UserContextProvider>     //to make data accessible throughout the component tree without having to pass props manually at every level
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<IndexPage />} />

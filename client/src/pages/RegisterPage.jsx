@@ -7,7 +7,7 @@ export default function RegisterPage() {
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
   async function registerUser(ev) {
-    ev.preventDefault();
+    ev.preventDefault();              //page reload na ho
     try {
       await axios.post('/register', {
         name,

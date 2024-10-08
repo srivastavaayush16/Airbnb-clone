@@ -32,7 +32,7 @@ export default function ProfilePage() {
   }
   return (
     <div>
-      <AccountNav />
+      <AccountNav />            //(Mybooking, My accomodation, My profile) pe jate hain to jo v change hota h wo isme likha hua h 
       {subpage === 'profile' && (
         <div className="text-center max-w-lg mx-auto">
           Logged in as {user.name} ({user.email})<br />

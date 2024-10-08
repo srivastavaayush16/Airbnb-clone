@@ -13,7 +13,7 @@ const multer = require('multer');
 const fs = require('fs');
 const mime = require('mime-types');
 
-require('dotenv').config();
+require('dotenv').config();             // to connect env file
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);
@@ -75,7 +75,7 @@ app.post('/api/register', async (req,res) => {
     });
     res.json(userDoc);
   } catch (e) {
-    res.status(422).json(e);
+    res.status(422).json(e);              //422->unprocessable entity
   }
 
 });
@@ -87,7 +87,7 @@ app.post('/api/login', async (req,res) => {
   if (userDoc) {
     const passOk = bcrypt.compareSync(password, userDoc.password);
     if (passOk) {
-      jwt.sign({
+      jwt.sign({                  //token => data, jwtSecret, options
         email:userDoc.email,
         id:userDoc._id
       }, jwtSecret, {}, (err,token) => {

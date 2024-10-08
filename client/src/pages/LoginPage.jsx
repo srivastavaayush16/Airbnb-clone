@@ -9,18 +9,18 @@ export default function LoginPage() {
   const [redirect, setRedirect] = useState(false);
   const {setUser} = useContext(UserContext);
   async function handleLoginSubmit(ev) {
-    ev.preventDefault();
+    ev.preventDefault();              //page reload na ho 
     try {
       const {data} = await axios.post('/login', {email,password});
       setUser(data);
       alert('Login successful');
-      setRedirect(true);
+      setRedirect(true);        //Login krne k bad home page pe redirect kar dega
     } catch (e) {
       alert('Login failed');
     }
   }
 
-  if (redirect) {
+  if (redirect) {               //Login krne k bad home page pe redirect kar dega
     return <Navigate to={'/'} />
   }
 
